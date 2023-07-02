@@ -109,11 +109,11 @@ def create_bookings():
 
         try:
             room = Room.objects.get(number=room_number)
-            user = CustomUser.objects.get(email=user_phone)
+            user = CustomUser.objects.get(phone=user_phone)
 
             booking = Booking.objects.create(room=room, user=user, **booking_data)
             print(f'Successfully created booking with ID {booking.pk}')
         except Room.DoesNotExist:
             print(f'Error: Room with number {room_number} does not exist')
         except CustomUser.DoesNotExist:
-            print(f'Error: User with email {user_phone} does not exist')
+            print(f'Error: User with phone {user_phone} does not exist')
