@@ -1,0 +1,6 @@
+.idea
+.flake8
+db.sqlite3
+templates
+logs
+venv
