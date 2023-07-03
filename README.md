@@ -138,12 +138,38 @@ python manage.py runserver
 }
 ```
 ##### Пример ответа
-
+```json
+{
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "uuid": "64ceaa35-b32e-46e2-bfe5-d546a7adc66d",
+            "number": "101",
+            "name": "Apartment Room",
+            "description": "A cozy room with a queen-sized bed.",
+            "kind": "apartment",
+            "cost": 100,
+            "number_of_beds": 1
+        },
+        {
+            "uuid": "eaa48e5f-6412-4bc8-8218-849ea3640e1b",
+            "number": "102",
+            "name": "Deluxe Room",
+            "description": "A spacious room with two queen-sized beds.",
+            "kind": "de_luxe",
+            "cost": 150,
+            "number_of_beds": 2
+        }
+    ]
+}
+```
 ### Бронирование (Booking)
 
 #### `POST /bookings`
 
-Возвращает список всех доступных комнат.
+Создание брони.
 
 ##### Параметры запроса
 ```json
@@ -167,3 +193,11 @@ python manage.py runserver
     "user": "0e2f8f68-1d4f-431c-81d2-95b13e7f68ad"
 }
 ```
+
+#### `PUT /bookings/{uuid}/cancel_booking/`
+
+Отмена брони.
+
+#### `GET /bookings/my_booking/`
+
+Просмотр своих брони.
